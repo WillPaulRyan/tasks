@@ -10,7 +10,25 @@
   <link rel="icon" href="./icon.png">
   <title>Todo App</title>
   <style>
+    /* Older browsers */
+    html { font-size: 16px;}
+
+    /* Modern browsers only need this one */
+    @media screen and (min-width: 25em){
+      html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
+    }
+
+    /* Safari <8 and IE <11 */
+    @media screen and (min-width: 25em){
+      html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
+    }
+    @media screen and (min-width: 50em){
+      html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
+    }
+
+
     body {
+      padding: 20px;
       background-color: #f6eeee;
     }
 
