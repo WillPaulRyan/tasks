@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <link rel="icon" href="./icon.png">
+  <title>Todo App</title>
+  <style>
+    body {
+      background-color: #f6eeee;
+    }
+
+    span {
+      cursor: pointer;
+    }
+
+    p {
+      margin: 0 0 0 20px;
+    }
+
+    input, button {
+      margin-left: 10px;
+    }
+
+  </style>
+  </head>
+  <body>
+    <div id="app" />
+    <script type="text/babel">
+
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          tasks: [],
+          input: "",
+        };
+      }
+      
+
+      handleChange = (event) => {
+        this.setState({input: event.target.value})
+      };
+
+      handleKeyPress = (event) => {
+        if (event.key === "Enter") {
+          console.log('enter')
+          this.addTask()
+        }
+      }
+
+      addTask = (event) => {
+        if (this.state.input == false) {
+          return false;
+        } else {
+          this.setState(state => ({
+            tasks: [...state.tasks, state.input]
+          }))
+          this.setState(state => ({
+            input: ""
+          }))
+        }
+      }
+
+      delete = (event) => {
+        const {id} = event.target.parentNode;
+        this.state.tasks.splice(id, 1);
+        this.setState(state => ({
+          tasks: [...state.tasks]
+        }))
+      }
+
+      render() {
+        return (
+          <div>
+            <h1>✔️React Todo App❌</h1>
+            <ul>
+              {this.state.tasks.map((task, i) => 
+                <li key={i} id={i}>
+                  {task}
+                  <span onClick={this.delete}>❌</span>
+                </li>              
+              )}
+            </ul>
+            <p>Number of tasks: {this.state.tasks.length}</p>
+            <input onKeyPress={this.handleKeyPress} onChange={this.handleChange} value={this.state.input} placeholder="Write your task" />
+            <button onClick={this.addTask}>Add task</button>              
+
+            
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render((
+      <div>
+        <App />
+      </div>
+    ), document.getElementById("app"));
+    </script>
+  </body>
+</html>
