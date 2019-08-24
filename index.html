@@ -92,6 +92,21 @@
         }))
       }
 
+      
+      componentDidMount() {
+          const tasks = JSON.parse(localStorage.getItem("tasks"));
+          if (tasks !== null && tasks.length) {
+            this.setState ({
+              tasks
+            })
+          }
+
+          window.addEventListener("beforeunload", () => {
+            localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
+          });
+        }
+
+
       render() {
         return (
           <div>
