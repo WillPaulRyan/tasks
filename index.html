@@ -1,50 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
-  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- Social Media tags -->
+    <meta property="og:title" content="Tasks">
+    <meta property="og:description" content="A simple ToDo app built in React.js">
+    <meta property="og:image" content="https://willpaulryan.github.io/tasks/tasks_shareable.png">
+    <meta property="og:url" content="https://willpaulryan.github.com/tasks">
+    <meta name="twitter:card" content="tasks_large_image">
+    
 
-  <link rel="icon" href="./icon.png">
-  <title>Todo App</title>
-  <style>
-    /* Older browsers */
-    html { font-size: 16px;}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-    /* Modern browsers only need this one */
-    @media screen and (min-width: 25em){
-      html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
-    }
+    <link rel="icon" href="./icon.png">
+    <title>Todo App</title>
+    <style>
+      /* Older browsers */
+      html { font-size: 16px;}
 
-    /* Safari <8 and IE <11 */
-    @media screen and (min-width: 25em){
-      html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
-    }
-    @media screen and (min-width: 50em){
-      html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
-    }
+      /* Modern browsers only need this one */
+      @media screen and (min-width: 25em){
+        html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
+      }
 
+      /* Safari <8 and IE <11 */
+      @media screen and (min-width: 25em){
+        html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
+      }
+      @media screen and (min-width: 50em){
+        html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
+      }
 
-    body {
-      padding: 20px;
-      background-color: #f6eeee;
-    }
+      body {
+        padding: 20px;
+        background-color: #f6eeee;
+      }
 
-    span {
-      cursor: pointer;
-    }
+      span {
+        cursor: pointer;
+      }
 
-    p {
-      margin: 0 0 0 20px;
-    }
+      p {
+        margin: 0 0 0 20px;
+      }
 
-    input, button {
-      margin-left: 10px;
-    }
+      input, button {
+        margin-left: 10px;
+      }
 
-  </style>
+    </style>
   </head>
   <body>
     <div id="app" />
@@ -66,7 +73,6 @@
 
       handleKeyPress = (event) => {
         if (event.key === "Enter") {
-          console.log('enter')
           this.addTask()
         }
       }
